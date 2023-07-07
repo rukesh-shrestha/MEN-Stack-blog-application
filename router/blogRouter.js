@@ -10,8 +10,11 @@ const {
   getPersonalBlog,
 } = require("../controller/blogController");
 
+const includeSessionId = require("../middleware/userInSession");
+
+const authMiddleWare = require("../middleware/authMiddleware");
 router.get("/", getHomePage);
-router.get("/createblog", getPersonalBlog);
+router.get("/createblog", authMiddleWare, getPersonalBlog);
 router.get("/about", getBlogPage);
 
 router.get("/contact", contactPage);

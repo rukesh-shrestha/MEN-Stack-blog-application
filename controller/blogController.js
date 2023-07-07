@@ -4,6 +4,7 @@ const path = require("path");
 
 const getHomePage = asyncHandler(async (req, res) => {
   const posts = await blog.find();
+  console.log(req.session);
 
   res.render("index", {
     posts: posts,

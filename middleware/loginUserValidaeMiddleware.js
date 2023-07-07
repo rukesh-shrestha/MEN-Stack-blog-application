@@ -10,6 +10,7 @@ const validateUser = asyncHandler(async function (req, res, next) {
   }
   const userData = await users.findOne({ email: email });
   if (userData && (await bcrypt.compare(password, userData.password))) {
+    req.session.userId = userData.id;
     next();
   } else {
     return res.redirect("/login");

@@ -10,10 +10,29 @@ const blogRouter = require("./router/blogRouter");
 const userRouter = require("./router/userRouter");
 require("ejs");
 require("dotenv").config();
-
+const expressSession = require("express-session");
 app.use(fileUpload());
 const port = process.env.PORT;
 connectDB();
+
+global.loggedIn = null;
+
+app.use("*", (req, res, next) => {
+  if (req.session) {
+    if (req.session.userId) {
+      loggedIn = req.session.userId;
+    }
+  }
+  next();
+});
+
+app.use(
+  expressSession({
+    secret: process.env.SECRETKEY_STRING,
+    saveUninitialized: true,
+    resave: false,
+  })
+);
 
 app.use("/posts/store", validateMiddleWare);
 
