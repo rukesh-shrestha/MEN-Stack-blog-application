@@ -1,5 +1,3 @@
-const bcrypt = require("bcrypt");
-
 const userValidationMiddleware = function (req, res, next) {
   const { username, email, password, firstname, lastname, confirmpassword } =
     req.body;

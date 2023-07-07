@@ -19,4 +19,12 @@ const updateRegistration = asyncHandler(async (req, res) => {
 const registration = (req, res) => {
   res.render("register");
 };
-module.exports = { registration, updateRegistration };
+
+const loginusers = (req, res) => {
+  res.render("login");
+};
+
+const loginData = (req, res) => {
+  res.redirect("/");
+};
+module.exports = { registration, updateRegistration, loginusers, loginData };

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Navigation-->
+    <%-include('layouts/header')-%> <%-include('layouts/nav')-%>
+    <!-- Page Header-->
+    <header
+      class="masthead"
+      style="background-image: url('assets/img/contact-bg.jpg')"
+    >
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="page-heading">
+              <h1>Login User</h1>
+              <span class="subheading">Welcome</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content-->
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form action="/users/login" method="POST">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  id="email"
+                  name="email"
+                  autofocus
+                />
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="password"
+                  id="password"
+                  name="password"
+                  autofocus
+                />
+              </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="sendMessageButton"
+              >
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br />
+    </div>
+    <!-- Footer-->
+    <%-include('layouts/footer')-%>
+    <!-- Bootstrap core JS-->
+    <%-include('layouts/scripts')-%>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  </body>
+</html>
