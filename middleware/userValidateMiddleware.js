@@ -1,18 +1,26 @@
+const bcrypt = require("bcrypt");
+
 const userValidationMiddleware = function (req, res, next) {
-  const { username, email, password, firstname, lastname } = req.body;
-  if (!username || !email || !password || !firstname || !lastname) {
+  const { username, email, password, firstname, lastname, confirmpassword } =
+    req.body;
+  const pattern = /^[a-zA-Z0-9\._\-]+@[a-z]+\.com$/;
+
+  if (
+    !username ||
+    !email ||
+    !password ||
+    !firstname ||
+    !lastname ||
+    !confirmpassword
+  ) {
     return res.redirect("/registeruser");
+  } else if (pattern.test(email)) {
+    if (password === confirmpassword) {
+      next();
+    } else {
+      return res.redirect("/registeruser");
+    }
   }
-
-  return res.redirect("/");
-  // if (!res.body) {
-  //   return res.redirect("/registeruser");
-  // }
-  // const { username, email, firstname, lastname, password, confirmpassword } =
-  //   req.body;
-
-  // console.log(username);
-  next();
 };
 
 module.exports = userValidationMiddleware;
