@@ -24,10 +24,11 @@ app.use(
     resave: false,
   })
 );
+
 app.use("*", function (req, res, next) {
   if (req.session) {
     if (req.session.userId) {
-      this.loggedIn = req.session.userId;
+      loggedIn = req.session.userId;
     }
   }
   next();

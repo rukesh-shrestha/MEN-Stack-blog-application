@@ -27,4 +27,26 @@ const loginusers = (req, res) => {
 const loginData = (req, res) => {
   res.redirect("/");
 };
-module.exports = { registration, updateRegistration, loginusers, loginData };
+
+const logoutController = (req, res) => {
+  if (req.session) {
+    if (req.session.userId) {
+      req.session.destroy((err) => {
+        loggedIn = null;
+        if (err) {
+          console.log(err);
+        } else {
+          return res.redirect("/");
+        }
+      });
+    }
+  }
+};
+
+module.exports = {
+  registration,
+  updateRegistration,
+  loginusers,
+  loginData,
+  logoutController,
+};

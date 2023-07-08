@@ -5,6 +5,7 @@ const {
   updateRegistration,
   loginusers,
   loginData,
+  logoutController,
 } = require("../controller/userController");
 const userValidationMiddleware = require("../middleware/userValidateMiddleware");
 const authMiddleWare = require("../middleware/authMiddleware");
@@ -18,6 +19,8 @@ userRouter.post(
 );
 
 userRouter.get("/login", includeSessionId, loginusers);
+userRouter.get("/logout", logoutController);
 
 userRouter.post("/users/login", validateUser, loginData);
+
 module.exports = userRouter;
