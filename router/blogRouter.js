@@ -23,4 +23,5 @@ router.get("/:id", getParticularBlog);
 
 router.post("/posts/store", createPersonalBlog);
 
+// router.use((req, res) => res.render("notfound"));
 module.exports = router;
