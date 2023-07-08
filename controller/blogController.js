@@ -3,6 +3,7 @@ const blog = require("../models/blogModels");
 const path = require("path");
 
 const getHomePage = asyncHandler(async (req, res) => {
+  console.log(loggedIn);
   const posts = await blog.find();
   console.log(req.session);
 
