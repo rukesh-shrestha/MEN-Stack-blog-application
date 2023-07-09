@@ -50,6 +50,7 @@ app.use("", blogRouter);
 app.all("*", (req, res) => {
   res.status(404).render("nofound");
 });
+
 app.listen(port, () => {
   console.log(`The server is running on ${port}`);
 });
