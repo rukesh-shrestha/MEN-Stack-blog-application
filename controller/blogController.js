@@ -11,7 +11,9 @@ const getHomePage = asyncHandler(async (req, res) => {
 });
 
 const getPersonalBlog = (req, res) => {
-  res.render("create");
+  res.render("create", {
+    createPost: true,
+  });
 };
 
 const getBlogPage = (req, res) => {
@@ -43,6 +45,7 @@ const createPersonalBlog = asyncHandler((req, res) => {
       await blog.create({
         userid: req.session.userId,
         title: req.body.title,
+        subheading: req.body.subheading,
         description: req.body.description,
         image: "/img/" + image.name,
       });

@@ -11,6 +11,10 @@ const blog = mongoose.Schema(
       type: String,
       required: [true, "Enter the blog titile"],
     },
+    subheading: {
+      type: String,
+      required: [true, "Enter your blog sub-heading"],
+    },
     description: {
       type: String,
       required: [true, "Enter your blog description"],

@@ -48,11 +48,24 @@
                 <textarea
                   rows="5"
                   class="form-control"
+                  
+                  placeholder="Write your subheading"
+                  name="subheading"
+                ></textarea>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Description</label>
+                <textarea
+                  rows="5"
+                  class="form-control"
                   id="body"
                   placeholder="Write your description"
                   name="description"
                 ></textarea>
               </div>
+            </div>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls">
                   <label>Image</label>
@@ -90,5 +103,13 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+    <script>
+      $("#body").summernote({
+        placeholder: "Hello bootstrap 4",
+        tabsize: 2,
+        height: 200,
+      });
+    </script>
   </body>
 </html>
