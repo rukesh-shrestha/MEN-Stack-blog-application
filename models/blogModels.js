@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
+
 const blog = mongoose.Schema(
   {
+    userid: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "users",
+    },
     title: {
       type: String,
       required: [true, "Enter the blog titile"],
