@@ -3,7 +3,7 @@ const express = require("express");
 const app = new express();
 const fileUpload = require("express-fileupload");
 const path = require("path");
-
+const flash = require("connect-flash");
 app.use("/css", express.static(path.join(__dirname) + "/public"));
 
 const connectDB = require("./config/dbConfiguration");
@@ -14,7 +14,7 @@ const userRouter = require("./router/userRouter");
 require("ejs");
 require("dotenv").config();
 const expressSession = require("express-session");
-
+app.use(flash());
 app.use(fileUpload());
 const port = process.env.PORT;
 connectDB();

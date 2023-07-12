@@ -24,6 +24,20 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          <% if(error) {%>
+          <ul class="list-group"></ul>
+                  
+          <li class="list-group-item list-group-item-danger">
+          
+            
+            <%= error %>
+              
+            
+          </li>
+          
+          </ul>
+          <%}%>
+
           <form action="/users/login" method="POST">
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
@@ -35,6 +49,7 @@
                   id="email"
                   name="email"
                   autofocus
+                  required
                 />
               </div>
             </div>
@@ -49,6 +64,7 @@
                   id="password"
                   name="password"
                   autofocus
+                  required
                 />
               </div>
             </div>

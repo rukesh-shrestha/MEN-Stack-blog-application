@@ -28,7 +28,22 @@
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
                 <!-- Error -->
-
+                  
+                <%if(errors){%>
+               
+                  <ul class="list-group"></ul>
+                          
+                  <li class="list-group-item list-group-item-danger">
+                  
+                    <%=errors%>
+                    
+                      
+                    
+                  </li>
+                  
+                  </ul>
+                  
+                 <%}%>
                 <!-- Handling Error -->
 
                 <label>Email</label>

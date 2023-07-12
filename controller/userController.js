@@ -1,28 +1,43 @@
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcrypt");
 const users = require("../models/userModels");
+const { configDotenv } = require("dotenv");
+const flash = require("connect-flash");
+const updateRegistration = async (req, res) => {
+  try {
+    const { email, password, firstname, lastname, username } = req.body;
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    await users.create({
+      email: email,
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      password: hashedPassword,
+    });
 
-const updateRegistration = asyncHandler(async (req, res) => {
-  const { email, firstname, lastname, username, password } = req.body;
+    res.redirect("/");
+  } catch (error) {
+    const errorsVal = "Email Already Used: " + error["_message"];
 
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  await users.create({
-    email: email,
-    firstname: firstname,
-    lastname: lastname,
-    username: username,
-    password: hashedPassword,
-  });
+    req.flash("errors", errorsVal);
 
-  res.redirect("/");
-});
+    // console.log(error, "errior");
+    res.redirect("/registeruser");
+  }
+};
 
 const registration = (req, res) => {
-  res.render("register");
+  const error = req.flash("errors")[0];
+
+  res.render("register", {
+    errors: error,
+  });
 };
 
 const loginusers = (req, res) => {
-  res.render("login");
+  const error = req.flash("error");
+
+  res.render("login", { error: error });
 };
 
 const loginData = (req, res) => {
