@@ -6,6 +6,8 @@ open in the Editor of your choice
 
 Go to the Terminal
 
+Go to the root folder where package.json file is
+
 npm install
 
 In the root directory create the .env file and add:
