@@ -8,6 +8,7 @@ const {
   contactPage,
   getParticularBlog,
   getPersonalBlog,
+  receiveDataContactPage,
 } = require("../controller/blogController");
 
 const includeSessionId = require("../middleware/userInSession");
@@ -22,6 +23,6 @@ router.get("/contact", contactPage);
 router.get("/:id", getParticularBlog);
 
 router.post("/posts/store", createPersonalBlog);
-
+router.post("/confirm/contact", receiveDataContactPage);
 // router.use((req, res) => res.render("notfound"));
 module.exports = router;

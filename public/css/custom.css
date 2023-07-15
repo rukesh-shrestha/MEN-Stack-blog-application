@@ -34,3 +34,9 @@
   transform: scaleX(0.6) skewX(-30deg);
   transform-origin: top right;
 }
+
+@media only screen and (max-width: 992px) {
+  #logo {
+    color: black;
+  }
+}
